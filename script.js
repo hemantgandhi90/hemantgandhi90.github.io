@@ -1,6 +1,47 @@
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Hero eyebrow typewriter
+(() => {
+  const el = document.querySelector('.typewriter');
+  if (!el) return;
+  const phrases = [
+    'Quality Engineering Leader',
+    'AI-Native Test Architect',
+    'Test Automation Architect',
+    'Team Builder',
+    'Automation Engineer',
+  ];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = phrases[0];
+    return;
+  }
+  const TYPE_MS = 70, DELETE_MS = 40, HOLD_MS = 1800, GAP_MS = 300;
+  let i = 0, char = 0, deleting = false;
+  el.textContent = '';
+  const tick = () => {
+    const word = phrases[i];
+    if (!deleting) {
+      char++;
+      el.textContent = word.slice(0, char);
+      if (char === word.length) {
+        deleting = true;
+        return setTimeout(tick, HOLD_MS);
+      }
+      return setTimeout(tick, TYPE_MS);
+    }
+    char--;
+    el.textContent = word.slice(0, char);
+    if (char === 0) {
+      deleting = false;
+      i = (i + 1) % phrases.length;
+      return setTimeout(tick, GAP_MS);
+    }
+    setTimeout(tick, DELETE_MS);
+  };
+  setTimeout(tick, 800);
+})();
+
 // Nav: add scrolled state on scroll
 const nav = document.querySelector('.nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
