@@ -175,6 +175,8 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   border-color: var(--text);
   background: rgba(255,255,255,0.06);
 }
+.btn-resume svg { transition: transform 0.2s; }
+.btn-resume:hover svg { transform: translateY(3px); }
 .hero-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 24px; max-width: 720px;
