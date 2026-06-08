@@ -464,7 +464,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   max-width: 720px; margin-left: auto; margin-right: auto;
 }
 .contact-links {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 16px; max-width: 800px; margin: 0 auto;
 }
 .contact-link {
